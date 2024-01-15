@@ -1,0 +1,24 @@
+{
+  "name": "s3-resize-image",
+  "version": "1.0.0",
+  "description": "",
+  "main": "origin-response-function.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "serverless-offline": "^13.3.2"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.1535.0",
+    "https": "^1.0.0",
+    "querystring": "^0.2.1",
+    "sharp": "^0.32.6"
+  },
+  "engines": {
+    "node": "^18.17.0 || ^20.3.0 || >=21.0.0"
+  }
+}

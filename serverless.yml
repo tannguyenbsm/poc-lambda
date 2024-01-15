@@ -1,0 +1,35 @@
+service: lambda-edge-functions
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+  region: us-east-2 # Change this to your desired AWS region
+  stage: dev
+  iam:
+    role: ${ROLE_ARN}
+
+
+configValidationMode: error
+
+plugins:
+  - serverless-offline
+
+# package:
+#   exclude:
+#     - layer/**
+functions:
+  origin-response-function:
+    handler: resize-image.handler
+    # memorySize: 128
+    description: function for 
+    environment: ${file(env.${opt:stage, self:provider.stage}.json)}
+    url: true
+    # layers:
+    #   - !Ref BaseLambdaLayer
+# layers:
+#   base:
+#     path: layer # required, path to layer contents on disk
+#     name: ${sls:stage}-layerName # optional, Deployed Lambda layer name
+#     description: Description of what the lambda layer does # optional, Description to publish to AWS
+#     compatibleRuntimes:
+#       - nodejs16.x

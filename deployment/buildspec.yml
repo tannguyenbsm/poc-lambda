@@ -1,0 +1,20 @@
+version: 0.2
+phases:
+  install:
+    #If you use the Ubuntu standard image 2.0 or later, you must specify runtime-versions.
+    #If you specify runtime-versions and use an image other than Ubuntu standard image 2.0, the build fails.
+    runtime-versions:
+      nodejs: 18
+  pre_build:
+    commands:
+      - echo Install Yarn and envsub
+      - npm install -g yarn envsub serverless
+      - echo Install dependencies
+      - yarn install --frozen-lockfile
+  build:
+    commands:
+      - envsub .env.example.json env.dev.json
+      - serverless deploy
+cache:
+  paths:
+    - node_modules
