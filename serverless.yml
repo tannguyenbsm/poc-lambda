@@ -6,7 +6,7 @@ provider:
   region: us-east-2 # Change this to your desired AWS region
   stage: dev
   iam:
-    role: ${ROLE_ARN}
+    role: ${env:ROLE_ARN}
 
 
 configValidationMode: error
