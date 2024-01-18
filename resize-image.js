@@ -107,9 +107,6 @@
 //   }
 // };
 
-// Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
-// SPDX-License-Identifier: MIT-0
-
 const AWS = require('aws-sdk');
 const https = require('https');
 const Sharp = require('sharp');
